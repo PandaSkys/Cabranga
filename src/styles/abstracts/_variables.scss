@@ -1,0 +1,21 @@
+// Couleurs
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$error: #dc3545;
+$warning: #ffc107;
+$light: #f8f9fa;
+$dark: #343a40;
+
+// Typographie
+$font-size-basic: 16px;
+$font-size-title: 24px;
+$font-size-subtitle: 20px;
+
+// Breakpoints Responsive
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+);
