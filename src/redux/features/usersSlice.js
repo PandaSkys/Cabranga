@@ -5,6 +5,21 @@ export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
   return await fetchUsersAPI();
 });
 
+export const addUsers = createAsyncThunk(
+  "users/addUsers",
+  async (user, { rejectWithValue }) => {
+    try {
+      const { data, error } = await supabase.from("users").insert([item]);
+
+      if (error) throw error;
+
+      return data;
+    } catch (err) {
+      return rejectWithValue(err.message);
+    }
+  }
+);
+
 const usersSlice = createSlice({
   name: "users",
   initialState: {

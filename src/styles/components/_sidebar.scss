@@ -1,0 +1,83 @@
+.sidebar {
+  padding: 30px 10px 0 10px;
+  width: 300px;
+  height: 100vh;
+  background: #fafafa;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .head {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      color: #292929;
+      font-size: 1.7rem;
+      font-weight: 500;
+    }
+    svg {
+      cursor: pointer;
+      transform: rotate(180deg);
+    }
+  }
+  .links {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      padding-left: 20px;
+
+      li a,
+      li p {
+        font-size: 1.2rem;
+        color: #5b5b5b;
+      }
+      li.active a {
+        color: #0088ff;
+      }
+      .dropdown-menu {
+        display: flex;
+        gap: 50px;
+
+        svg {
+          cursor: pointer;
+        }
+      }
+      .dropdown {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        border-left: 1px solid #5b5b5b34;
+        margin-left: 20px;
+        padding-left: 20px;
+      }
+    }
+  }
+
+  .bottom {
+    margin-bottom: 10%;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .profil {
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      color: #fafafa;
+      background: #0088ff;
+    }
+
+    .user-name {
+      color: #5b5b5b;
+    }
+  }
+}
