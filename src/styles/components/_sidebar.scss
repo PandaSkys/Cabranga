@@ -28,23 +28,45 @@
     ul {
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
+      gap: 1.5rem;
       padding-left: 20px;
 
-      li a,
-      li p {
-        font-size: 1.2rem;
+      li {
+        width: 80%;
+        height: 40px;
+        padding: 0 10px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
         color: #5b5b5b;
       }
-      li.active a {
+      li.active {
+        color: #0088ff;
+        background: rgba(204, 204, 204, 0.24);
+      }
+      .lin {
+        display: flex;
+        gap: 10px;
+      }
+      li a,
+      li p {
+        width: 100%;
+        font-size: 1.2rem;
+        color: #5b5b5b;
+        cursor: pointer;
+      }
+      li a.active {
         color: #0088ff;
       }
       .dropdown-menu {
         display: flex;
-        gap: 50px;
-
-        svg {
-          cursor: pointer;
+        justify-content: space-between;
+        gap: 30px;
+      }
+      .dropdown-menu.active-menu {
+        .arrow {
+          transform: rotate(180deg);
         }
       }
       .dropdown {
@@ -66,8 +88,8 @@
     justify-content: space-between;
 
     .profil {
-      width: 45px;
-      height: 45px;
+      width: 42px;
+      height: 42px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -76,8 +98,13 @@
       background: #0088ff;
     }
 
-    .user-name {
+    .user-name span {
+      font-size: 1.2rem;
       color: #5b5b5b;
     }
   }
+}
+svg {
+  cursor: pointer;
+  transition: transform 0.3s ease-out;
 }
