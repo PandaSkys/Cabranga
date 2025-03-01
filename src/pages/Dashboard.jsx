@@ -4,33 +4,42 @@ import Sidebar from "../components/Sidebar";
 import { useNavigate } from "react-router"; // Utilisation de useNavigate pour React Native
 
 const Dashboard = () => {
-  const [user, setUser] = useState(null);
-  const navigate = useNavigate();
+    const [user, setUser] = useState(null);
+    const [userData, setUserData] = useState(null);
+    const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      const {
-        data: { user },
-      } = await supabase.auth.getUser(); // Utilisation de getUser()
+    useEffect(() => {
+        const fetchUser = async () => {
+            const {
+                data: { user },
+            } = await supabase.auth.getUser(); // Utilisation de getUser()
 
-      if (!user) {
-        // Redirige l'utilisateur s'il n'est pas connecté
-        navigate("/login");
-      } else {
-        setUser(user);
-      }
-    };
+            if (!user) {
+                // Redirige l'utilisateur s'il n'est pas connecté
+                navigate("/login");
+            } else {
+                setUser(user);
+                const { data, error } = await supabase.auth.getSession();
+                if (error) {
+                    console.log(error);
+                    return;
+                } else {
+                    setUserData(data.session.user.user_metadata);
+                }
+            }
+        };
 
-    fetchUser();
-  }, [navigate]);
+        fetchUser();
+    }, [navigate]);
 
-  if (!user) return null; // Affiche rien pendant le chargement ou si non connecté
+    if (!user) return null; // Affiche rien pendant le chargement ou si non connecté
 
-  return (
-    <div>
-      <Sidebar />
-    </div>
-  );
+    return (
+        <div>
+            <Sidebar username={userData && userData.first_name} />
+            <h1>{userData?.email}</h1>
+        </div>
+    );
 };
 
 export default Dashboard;
