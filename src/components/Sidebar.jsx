@@ -11,35 +11,30 @@ import {
 } from "lucide-react";
 import React, { useState } from "react";
 import { NavLink } from "react-router";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 
 const Sidebar = () => {
-  const [isOpen, setisOpen] = useState(true);
+  const [isOpen, setisOpen] = useState(false);
 
   const toggleHoverMenu = () => {
     setisOpen(!isOpen);
   };
 
-  const subMenuAnimate = {
+  const animeSubMenu = {
     enter: {
+      height: "fit-content",
       opacity: 1,
-      rotateX: 0,
-      y: 0,
       transition: {
         duration: 0.3,
+        delay: 0.1,
       },
-      display: "block",
     },
     exit: {
+      height: 0,
       opacity: 0,
-      rotateX: -15,
-      y: -20,
       transition: {
-        duration: 0.5,
-        delay: 0.3,
-      },
-      transitionEnd: {
-        display: "none",
+        duration: 0.3,
+        delay: 0.2,
       },
     },
   };
@@ -80,22 +75,19 @@ const Sidebar = () => {
             <motion.div
               initial="exit"
               animate={isOpen ? "enter" : "exit"}
-              variants={subMenuAnimate}
+              variants={animeSubMenu}
+              className="dropdown"
             >
-              <div className="dropdown">
-                <li
-                  className={
-                    location.pathname == "/evaluations" ? "active" : ""
-                  }
-                >
-                  <FileChartColumn />
-                  <NavLink to="/evaluations">Évaluations</NavLink>
-                </li>
-                <li className={location.pathname == "/report" ? "active" : ""}>
-                  <FileSpreadsheet />
-                  <NavLink to="/report">Bulletins</NavLink>
-                </li>
-              </div>
+              <li
+                className={location.pathname == "/evaluations" ? "active" : ""}
+              >
+                <FileChartColumn />
+                <NavLink to="/evaluations">Évaluations</NavLink>
+              </li>
+              <li className={location.pathname == "/report" ? "active" : ""}>
+                <FileSpreadsheet />
+                <NavLink to="/report">Bulletins</NavLink>
+              </li>
             </motion.div>
           </motion.div>
           <li className={location.pathname == "/note" ? "active" : ""}>

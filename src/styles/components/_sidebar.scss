@@ -1,8 +1,10 @@
+@use "../abstracts/variables" as *;
+
 .sidebar {
-  padding: 30px 10px 0 10px;
+  padding: 20px 10px 0 10px;
   width: 300px;
   height: 100vh;
-  background: #fafafa;
+  background: $light;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -15,7 +17,7 @@
     align-items: center;
 
     h1 {
-      color: #292929;
+      color: $text-1;
       font-size: 1.7rem;
       font-weight: 500;
     }
@@ -25,7 +27,9 @@
     }
   }
   .links {
+    overflow: hidden;
     ul {
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
@@ -39,11 +43,16 @@
         display: flex;
         align-items: center;
         gap: 10px;
-        color: #5b5b5b;
+        color: $text-2;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background: $secondary;
+        }
       }
       li.active {
-        color: #0088ff;
-        background: rgba(204, 204, 204, 0.24);
+        color: $primary;
+        background: $secondary;
       }
       .lin {
         display: flex;
@@ -53,13 +62,14 @@
       li p {
         width: 100%;
         font-size: 1.2rem;
-        color: #5b5b5b;
+        color: $text-2;
         cursor: pointer;
       }
       li a.active {
-        color: #0088ff;
+        color: $primary;
       }
       .dropdown-menu {
+        overflow: hidden;
         display: flex;
         justify-content: space-between;
         gap: 30px;
@@ -72,6 +82,7 @@
       .dropdown {
         display: flex;
         flex-direction: column;
+        overflow: hidden;
         gap: 20px;
         border-left: 1px solid #5b5b5b34;
         margin-left: 20px;
@@ -94,13 +105,13 @@
       align-items: center;
       justify-content: center;
       border-radius: 10px;
-      color: #fafafa;
-      background: #0088ff;
+      color: $light;
+      background: $primary;
     }
 
     .user-name span {
       font-size: 1.2rem;
-      color: #5b5b5b;
+      color: $text-2;
     }
   }
 }
