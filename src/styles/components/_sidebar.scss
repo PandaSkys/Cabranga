@@ -22,14 +22,11 @@
       font-weight: 500;
     }
     svg {
-      cursor: pointer;
       transform: rotate(180deg);
     }
   }
   .links {
-    overflow: hidden;
     ul {
-      overflow: hidden;
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
@@ -42,9 +39,7 @@
         border-radius: 5px;
         display: flex;
         align-items: center;
-        gap: 10px;
-        color: $text-2;
-        transition: background-color 0.3s ease;
+        transition: background-color 0.3s ease-out;
 
         &:hover {
           background: $secondary;
@@ -64,6 +59,9 @@
         font-size: 1.2rem;
         color: $text-2;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
       li a.active {
         color: $primary;

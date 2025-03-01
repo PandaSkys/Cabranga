@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import React, { useState } from "react";
 import { NavLink } from "react-router";
-import { delay, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Sidebar = () => {
   const [isOpen, setisOpen] = useState(false);
@@ -48,16 +48,19 @@ const Sidebar = () => {
       <div className="links">
         <ul>
           <li className={location.pathname == "/" ? "active" : ""}>
-            <House />
-            <NavLink to="/">Accueil</NavLink>
+            <NavLink to="/">
+              <House /> Accueil
+            </NavLink>
           </li>
           <li className={location.pathname == "/calendar" ? "active" : ""}>
-            <Calendar />
-            <NavLink to="/calendar">Calendrier</NavLink>
+            <NavLink to="/calendar">
+              <Calendar /> Calendrier
+            </NavLink>
           </li>
           <li className={location.pathname == "/school-diary" ? "active" : ""}>
-            <NotebookText />
-            <NavLink to="/school-diary">Jdc</NavLink>
+            <NavLink to="/school-diary">
+              <NotebookText /> Jdc
+            </NavLink>
           </li>
           <motion.div>
             <li
@@ -67,8 +70,9 @@ const Sidebar = () => {
               onClick={toggleHoverMenu}
             >
               <div className="lin">
-                <Archive />
-                <p>Résultats</p>
+                <p>
+                  <Archive /> Résultats
+                </p>
               </div>
               <ChevronDown className="arrow" color="#5b5b5b" width={30} />
             </li>
@@ -81,18 +85,21 @@ const Sidebar = () => {
               <li
                 className={location.pathname == "/evaluations" ? "active" : ""}
               >
-                <FileChartColumn />
-                <NavLink to="/evaluations">Évaluations</NavLink>
+                <NavLink to="/evaluations">
+                  <FileChartColumn /> Évaluations
+                </NavLink>
               </li>
               <li className={location.pathname == "/report" ? "active" : ""}>
-                <FileSpreadsheet />
-                <NavLink to="/report">Bulletins</NavLink>
+                <NavLink to="/report">
+                  <FileSpreadsheet /> Bulletins
+                </NavLink>
               </li>
             </motion.div>
           </motion.div>
           <li className={location.pathname == "/note" ? "active" : ""}>
-            <MailWarning />
-            <NavLink to="/note">Remarques</NavLink>
+            <NavLink to="/note">
+              <MailWarning /> Remarques
+            </NavLink>
           </li>
         </ul>
       </div>
