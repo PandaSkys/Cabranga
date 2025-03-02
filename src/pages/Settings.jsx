@@ -3,9 +3,10 @@ import { supabase } from "../supabaseClient"; // Assurez-vous d'importer correct
 import Sidebar from "../components/Sidebar";
 import { useNavigate } from "react-router"; // Utilisation de useNavigate pour React Native
 
-const Dashboard = () => {
+const Settings = () => {
     const [user, setUser] = useState(null);
     const [userData, setUserData] = useState(null);
+    const [image, setImage] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -31,24 +32,37 @@ const Dashboard = () => {
 
         fetchUser();
     }, [navigate]);
-
     if (!user) return null; // Affiche rien pendant le chargement ou si non connecté
 
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setImage(file);
+        }
+    };
+
+    const uploadImage = async () => {
+        if (!image) return;
+
+        const fileName = `profiles/${Date.now()}_${image.name}`;
+
+        const { data, error } = await supabase.storage
+            .from("avatars")
+            .upload(fileName, image);
+
+        if (error) {
+            console.log(error);
+            return;
+        }
+    };
+
     return (
-        <div className="container">
+        <div>
             <Sidebar username={userData && userData.name} />
-            <div className="box">
-                <div className="grid">
-                    <div className="items"></div>
-                    <div className="items"></div>
-                    <div className="items"></div>
-                    <div className="items"></div>
-                    <div className="items"></div>
-                    <div className="items"></div>
-                </div>
-            </div>
+            <input type="file" name="Avatar" onChange={handleFileChange} />
+            <button onClick={uploadImage}>Submit</button>
         </div>
     );
 };
 
-export default Dashboard;
+export default Settings;

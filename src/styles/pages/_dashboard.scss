@@ -1,0 +1,10 @@
+.container {
+    width: calc(100% - 25%);
+    min-height: 100vh;
+
+    .box {
+        width: 100%;
+        height: 100vh;
+        background: #000;
+    }
+}

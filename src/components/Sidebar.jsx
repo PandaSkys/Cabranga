@@ -41,93 +41,100 @@ const Sidebar = ({ username }) => {
 
     return (
         <div className="sidebar">
-            <div className="head">
-                <h1>Cabranga</h1>
-                <ChevronRight color="#292929" width={30} />
-            </div>
-            <div className="links">
-                <ul>
-                    <li className={location.pathname == "/" ? "active" : ""}>
-                        <NavLink to="/">
-                            <House /> Accueil
-                        </NavLink>
-                    </li>
-                    <li
-                        className={
-                            location.pathname == "/calendar" ? "active" : ""
-                        }
-                    >
-                        <NavLink to="/calendar">
-                            <Calendar /> Calendrier
-                        </NavLink>
-                    </li>
-                    <li
-                        className={
-                            location.pathname == "/school-diary" ? "active" : ""
-                        }
-                    >
-                        <NavLink to="/school-diary">
-                            <NotebookText /> Jdc
-                        </NavLink>
-                    </li>
-                    <motion.div>
+            <div className="top">
+                <div className="head">
+                    <h1>Cabranga</h1>
+                </div>
+                <div className="links">
+                    <ul>
+                        <li
+                            className={location.pathname == "/" ? "active" : ""}
+                        >
+                            <NavLink to="/">
+                                <House /> Accueil
+                            </NavLink>
+                        </li>
                         <li
                             className={
-                                isOpen
-                                    ? "dropdown-menu active-menu "
-                                    : "dropdown-menu"
+                                location.pathname == "/calendar" ? "active" : ""
                             }
-                            onClick={toggleHoverMenu}
                         >
-                            <div className="lin">
-                                <p>
-                                    <Archive /> Résultats
-                                </p>
-                            </div>
-                            <ChevronDown
-                                className="arrow"
-                                color="#5b5b5b"
-                                width={30}
-                            />
+                            <NavLink to="/calendar">
+                                <Calendar /> Calendrier
+                            </NavLink>
                         </li>
-                        <motion.div
-                            initial="exit"
-                            animate={isOpen ? "enter" : "exit"}
-                            variants={animeSubMenu}
-                            className="dropdown"
+                        <li
+                            className={
+                                location.pathname == "/school-diary"
+                                    ? "active"
+                                    : ""
+                            }
                         >
+                            <NavLink to="/school-diary">
+                                <NotebookText /> Jdc
+                            </NavLink>
+                        </li>
+                        <motion.div>
                             <li
                                 className={
-                                    location.pathname == "/evaluations"
-                                        ? "active"
-                                        : ""
+                                    isOpen
+                                        ? "dropdown-menu active-menu "
+                                        : "dropdown-menu"
                                 }
+                                onClick={toggleHoverMenu}
                             >
-                                <NavLink to="/evaluations">
-                                    <FileChartColumn /> Évaluations
-                                </NavLink>
+                                <div className="lin">
+                                    <p>
+                                        <Archive /> Résultats
+                                    </p>
+                                </div>
+                                <ChevronDown
+                                    className="arrow"
+                                    color="#5b5b5b"
+                                    width={30}
+                                />
                             </li>
-                            <li
-                                className={
-                                    location.pathname == "/report"
-                                        ? "active"
-                                        : ""
-                                }
+                            <motion.div
+                                initial="exit"
+                                animate={isOpen ? "enter" : "exit"}
+                                variants={animeSubMenu}
+                                className="dropdown"
                             >
-                                <NavLink to="/report">
-                                    <FileSpreadsheet /> Bulletins
-                                </NavLink>
-                            </li>
+                                <li
+                                    className={
+                                        location.pathname == "/evaluations"
+                                            ? "active"
+                                            : ""
+                                    }
+                                >
+                                    <NavLink to="/evaluations">
+                                        <FileChartColumn /> Évaluations
+                                    </NavLink>
+                                </li>
+                                <li
+                                    className={
+                                        location.pathname == "/report"
+                                            ? "active"
+                                            : ""
+                                    }
+                                >
+                                    <NavLink to="/report">
+                                        <FileSpreadsheet /> Bulletins
+                                    </NavLink>
+                                </li>
+                            </motion.div>
                         </motion.div>
-                    </motion.div>
-                    <li
-                        className={location.pathname == "/note" ? "active" : ""}
-                    >
-                        <NavLink to="/note">
-                            <MailWarning /> Remarques
-                        </NavLink>
-                    </li>
-                </ul>
+                        <li
+                            className={
+                                location.pathname == "/note" ? "active" : ""
+                            }
+                        >
+                            <NavLink to="/note">
+                                <MailWarning /> Remarques
+                            </NavLink>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div className="bottom">
                 <div className="profil">
