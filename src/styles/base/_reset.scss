@@ -10,5 +10,6 @@
 body {
   width: 100vw;
   min-height: 100vh;
-  background: $light-2;
+  background: $primary;
+  overflow-x: hidden;
 }

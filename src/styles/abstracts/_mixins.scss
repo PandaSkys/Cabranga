@@ -1,0 +1,57 @@
+@use "./variables" as *;
+
+@mixin input {
+  height: 40px;
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid $input-border;
+  color: $text-1;
+  background: $secondary;
+  transition: border-color 0.2s ease-out;
+
+  &::placeholder {
+    color: $text-2;
+  }
+  &:focus {
+    border-color: #ccc;
+  }
+}
+@mixin button($special: $default) {
+  min-width: 100px;
+  height: 40px;
+  position: relative;
+  color: $text-1;
+  font-weight: 600;
+  background: $special;
+  border-radius: 5px;
+  border: 1px solid $input-border;
+  cursor: pointer;
+  transition: opacity 0.3s ease-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+@mixin checkbox($color, $size: 20px) {
+  .checkmark {
+    width: $size;
+    height: $size;
+    border: 2px solid $input-border;
+    border-radius: 6px;
+    display: inline-block;
+    cursor: pointer;
+    background: $secondary;
+    transition: background 0.2s ease-out;
+  }
+
+  label {
+    color: $text-1;
+  }
+
+  input:checked + .checkmark {
+    background: $color;
+    border-color: $color;
+  }
+}

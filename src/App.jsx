@@ -7,20 +7,17 @@ import Register from "./pages/Register";
 import Settings from "./pages/Settings";
 
 const App = () => {
-    return (
-        <Router>
-            <Routes>
-                <Route path="/login" element={<Login />}></Route>
-                <Route path="/register" element={<Register />}></Route>
-                <Route path="/" element={<Dashboard />} />
-                <Route path="/settings" element={<Settings />} />
-                {/* <Route path="/" element={<Dashboard />}></Route>
-        <Route path="/" element={<Dashboard />}></Route>
-        <Route path="/" element={<Dashboard />}></Route> */}
-                <Route path="*" element={<NotFound />}></Route>
-            </Routes>
-        </Router>
-    );
+  return (
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="*" element={<NotFound />}></Route>
+      </Routes>
+    </Router>
+  );
 };
 
 export default App;
