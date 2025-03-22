@@ -2,11 +2,12 @@ import Sidebar from "../components/Sidebar";
 import { useAuth } from "../hooks/useAuth";
 
 const Dashboard = () => {
-  // const user = useAuth();
+  const user = useAuth();
 
   return (
     <div className="container">
-      <Sidebar />
+      <Sidebar userData={user} />
+      {/* {user?.user_metadata.firstName} */}
     </div>
   );
 };
