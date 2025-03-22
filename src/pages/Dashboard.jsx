@@ -1,13 +1,13 @@
 import Sidebar from "../components/Sidebar";
-import { useAuth } from "../hooks/useAuth";
+import useFetchUser from "../hooks/useFetchUser";
 
 const Dashboard = () => {
-  const user = useAuth();
+  useFetchUser();
+  //   const user = useSelector((state) => state.user.user);
 
   return (
     <div className="container">
-      <Sidebar userData={user} />
-      {/* {user?.user_metadata.firstName} */}
+      <Sidebar />
     </div>
   );
 };

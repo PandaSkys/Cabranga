@@ -9,10 +9,12 @@ import {
   StickyNote,
 } from "lucide-react";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router";
 
-const Sidebar = ({ userData }) => {
-  const [isOpen, setIsOpen] = useState(true);
+const Sidebar = () => {
+  const user = useSelector((state) => state.user.user);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav id="sidebar" className={isOpen ? "" : "hide"}>
@@ -91,7 +93,7 @@ const Sidebar = ({ userData }) => {
           <div className="user">
             <div className="pp">
               <p>
-                Hey <span>{userData?.user_metadata.name}</span>
+                Hey <span>{user?.user_metadata.name}</span>
               </p>
             </div>
           </div>
