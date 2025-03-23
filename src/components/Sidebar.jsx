@@ -13,8 +13,8 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router";
 
 const Sidebar = () => {
-  const user = useSelector((state) => state.user.user);
-  const [isOpen, setIsOpen] = useState(false);
+  const { user } = useSelector((state) => state.user);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <nav id="sidebar" className={isOpen ? "" : "hide"}>
@@ -93,7 +93,7 @@ const Sidebar = () => {
           <div className="user">
             <div className="pp">
               <p>
-                Hey <span>{user?.user_metadata.name}</span>
+                Hey <span>{user?.user_metadata.firstName}</span>
               </p>
             </div>
           </div>
