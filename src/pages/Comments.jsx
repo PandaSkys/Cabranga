@@ -1,6 +1,7 @@
+import React from "react";
 import Sidebar from "../components/Sidebar";
 
-const Settings = () => {
+const Comments = () => {
   return (
     <div>
       <Sidebar />
@@ -8,4 +9,4 @@ const Settings = () => {
   );
 };
 
-export default Settings;
+export default Comments;

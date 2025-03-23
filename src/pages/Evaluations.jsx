@@ -1,5 +1,5 @@
-import Sidebar from "../components/Sidebar";
 import React from "react";
+import Sidebar from "../components/Sidebar";
 
 const Evaluations = () => {
   return (
