@@ -11,6 +11,7 @@
   flex-direction: column;
   justify-content: space-between;
   background: $secondary;
+  border-right: 1px solid #cccccc24;
   overflow: hidden;
   transition: width 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
 
@@ -126,6 +127,12 @@
     position: fixed;
     top: unset;
     bottom: 0;
+    border-right: none;
+    border-top: 1px solid #cccccc24;
+
+    .active-indicator {
+      border-radius: 0;
+    }
 
     > ul {
       padding: 0;
@@ -143,7 +150,6 @@
           width: 60px;
           height: 60px;
           padding: 0;
-          border-radius: 0;
           justify-content: center;
         }
       }
