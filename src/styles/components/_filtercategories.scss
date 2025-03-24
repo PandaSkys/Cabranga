@@ -18,9 +18,10 @@
       height: 40px;
       border-radius: 5px;
       padding: 0 5px;
+      outline: none;
       border: none;
-      background: $secondary;
       color: $text-1;
+      background: $secondary;
     }
     input {
       flex: 1 0 40px;

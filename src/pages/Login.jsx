@@ -5,23 +5,19 @@ import { NavLink, useNavigate } from "react-router";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [warning, setWarning] = useState("");
   const navigate = useNavigate();
   const [isCheck, setIsCheck] = useState(false);
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError(null);
+    setWarning(null);
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
     if (error) {
-      setError(error.message);
-      setTimeout(() => {
-        setError(false);
-      }, 3000);
-      console.log(error);
+      setWarning(error.message);
     } else {
       navigate("/");
     }
@@ -60,8 +56,8 @@ const Login = () => {
         </div>
         <button type="submit">Login</button>
       </form>
-      <div className={error ? "error active-error" : "error"}>
-        {error && <p>{error}</p>}
+      <div className={warning ? "error active-error" : "error"}>
+        {warning && <p>{warning}</p>}
       </div>
     </div>
   );
